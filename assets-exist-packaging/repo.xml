@@ -1,0 +1,14 @@
+<meta xmlns="http://exist-db.org/xquery/repo">
+    <description>@repo.description@</description>
+    <author>@repo.author@</author>
+    <website>@repo.website@</website>
+    <status>@repo.status@</status>
+    <license>@repo.license@</license>
+    <copyright>@repo.copyright@</copyright>
+    <type>@repo.type@</type>
+    <target>@repo.target@</target>
+    <prepare>@repo.prepare@</prepare>
+    <finish>@repo.finish@</finish>
+    <permissions user="@repo.permissions.user@" group="@repo.permissions.group@" mode="@repo.permissions.mode@" />
+    <deployed>@repo.deployed@</deployed>
+</meta>
