@@ -46,6 +46,6 @@
     </target>
     <target name="xar">
         <mkdir dir="${dir.dist}" />
-        <zip basedir="${dir.build}/${edition.id}/" destfile="${dist.dir}/${name.short}.xar" />
+        <zip basedir="${dir.build}/${edition.id}/" destfile="${dir.dist}/${name.short}.xar" />
     </target>
 </project>
