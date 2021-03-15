@@ -10,5 +10,4 @@
     <prepare>@repo.prepare@</prepare>
     <finish>@repo.finish@</finish>
     <permissions user="@repo.permissions.user@" group="@repo.permissions.group@" mode="@repo.permissions.mode@" />
-    <deployed>@repo.deployed@</deployed>
 </meta>
