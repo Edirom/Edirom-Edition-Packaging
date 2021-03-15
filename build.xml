@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." name="bazga.edition">
+    <loadproperties srcfile="build.properties" />
+    <loadproperties srcfile="local.properties" />
+    <target name="sample-edition.init">
+        <mkdir dir="${edition.id}" />
+    </target>
+    <target name="clean">
+        <delete dir="${dir.build}" />
+    </target>
+    <target name="build">
+        <mkdir dir="${dir.build}" />
+        <copy todir="${dir.build}/${name.short}/">
+            <fileset dir="${edition.id}" includes="**" />
+            <fileset dir="assets-exist-packaging" includes="**" />
+            <filterchain>
+                <replacetokens begintoken="@" endtoken="@">
+                    <!-- expath-pkg.xml -->
+                    <token key="pkg.name" value="${website}${website.sub}/${name.short}" />
+                    <token key="pkg.abbrev" value="${name.short}" />
+                    <token key="pkg.title" value="${name}" />
+                    <token key="pkg.version" value="${version}" />
+                    <token key="pkg.home" value="${github.origin}" />
+                    <?TODO dependencies ?>
+                    <!-- repo.xml -->
+                    <token key="repo.description" value="${description}" />
+                    <token key="repo.author" value="${author}" />
+                    <token key="repo.website" value="${github.origin}" />
+                    <token key="repo.status" value="${status}" />
+                    <token key="repo.license" value="${license}" />
+                    <token key="repo.copyright" value="${copyright}" />
+                    <token key="repo.type" value="${type}" />
+                    <token key="repo.target" value="${repo.target.prefix}${name.short}" />
+                    <token key="repo.prepare" value="${repo.prepare}" />
+                    <token key="repo.finish" value="${repo.finish}" />
+                    <token key="repo.permissions.user" value="${repo.permissions.user}" />
+                    <token key="repo.permissions.group" value="${repo.permissions.group}" />
+                    <token key="repo.permissions.mode" value="${repo.permissions.mode}" />
+                </replacetokens>
+            </filterchain>
+        </copy>
+    </target>
+    <target name="reset">
+        <delete dir="${dir.build}" />
+        <delete dir="${dir.dist}" />
+        <delete dir="${edition.id}" />
+    </target>
+    <target name="xar">
+        <mkdir dir="${dir.dist}" />
+        <zip basedir="${dir.build}/${edition.id}/" destfile="${dist.dir}/${name.short}.xar" />
+    </target>
+</project>
