@@ -2,7 +2,7 @@
 <project basedir="." name="bazga.edition">
     <loadproperties srcfile="build.properties" />
     <target name="init.sample-edition">
-        <mkdir dir="${edition.id}" />
+        <mkdir dir="${name.short}" />
     </target>
     <target name="clean">
         <delete dir="${dir.build}" />
@@ -10,7 +10,7 @@
     <target name="build">
         <mkdir dir="${dir.build}" />
         <copy todir="${dir.build}/${name.short}/">
-            <fileset dir="${edition.id}" includes="**" />
+            <fileset dir="${uri.edition}" excludes="local.properties" includes="**" />
             <fileset dir="assets-exist-packaging" includes="**" />
             <filterchain>
                 <replacetokens begintoken="@" endtoken="@">
