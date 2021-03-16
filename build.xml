@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project basedir="." name="bazga.edition">
     <loadproperties srcfile="build.properties" />
+    <available file="${uri.edition}/local.properties" property="properties.local.available" />
+    <target name="properties.local.load" if="${properties.local.available}">
+        <loadproperties srcfile="${uri.edition}/local.properties" />
+    </target>
+    <target name="properties.local.create" description="Stores a copy of build.properties as local.properties">
+        <copy file="build.properties" tofile="local.properties" />
+    </target>
     <target name="init.sample-edition">
         <mkdir dir="${name.short}" />
+        <copy file="build.properties" tofile="${name.short}/local.properties" />
     </target>
     <target name="clean">
         <delete dir="${dir.build}" />
     </target>
-    <target name="build">
+    <target name="build" depends="properties.local.load">
         <mkdir dir="${dir.build}" />
         <copy todir="${dir.build}/${name.short}/">
             <fileset dir="${uri.edition}" excludes="local.properties" includes="**" />
