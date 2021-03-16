@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project basedir="." name="bazga.edition">
     <loadproperties srcfile="build.properties" />
-    <target name="sample-edition.init">
+    <target name="init.sample-edition">
         <mkdir dir="${edition.id}" />
     </target>
     <target name="clean">
