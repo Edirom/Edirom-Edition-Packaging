@@ -6,7 +6,7 @@
         <loadproperties srcfile="${uri.edition}/local.properties" />
     </target>
     <target name="properties.local.create" description="Stores a copy of build.properties as local.properties">
-        <copy file="build.properties" tofile="local.properties" />
+        <copy file="build.properties" tofile="${uri.edition}/local.properties" />
     </target>
     <target name="init.sample-edition">
         <mkdir dir="${name.short}" />
