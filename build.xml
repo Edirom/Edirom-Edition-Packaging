@@ -43,6 +43,7 @@
                     <token key="repo.permissions.user" value="${repo.permissions.user}" />
                     <token key="repo.permissions.group" value="${repo.permissions.group}" />
                     <token key="repo.permissions.mode" value="${repo.permissions.mode}" />
+                    <token key="edirom.prefs.edition_path" value="${edirom.prefs.edition_path}"/>
                 </replacetokens>
             </filterchain>
         </copy>
