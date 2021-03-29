@@ -3,13 +3,11 @@
     <available file="${uri.edition}/local.properties" property="properties.local.available" />
     <target name="properties.load" depends="properties.local.load">
         <loadproperties srcfile="build.properties">
-            <!--<filterchain refid="filterchain" />-->
         </loadproperties>
         <echoproperties />
     </target>
     <target name="properties.local.load" if="${properties.local.available}">
         <loadproperties srcfile="${uri.edition}/local.properties">
-            <!--<filterchain refid="filterchain" />-->
         </loadproperties>
     </target>
     <target name="properties.local.create" description="Stores a copy of build.properties as local.properties" depends="properties.load">
@@ -57,37 +55,6 @@
                     <token key="edirom.prefs.edition_path" value="${edirom.prefs.edition_path}" />
                     <?TODO dependencies ?>
                 </replacetokens>
-                <!--<replacetokens begintoken="${" endtoken="}">
-            <!-\- expath-pkg.xml -\->
-            <token key="pkg.name" value="${pkg.name}" />
-            <token key="pkg.abbrev" value="${pkg.abbrev}" />
-            <token key="pkg.title" value="${pkg.title}" />
-            <token key="pkg.version" value="${pkg.version}" />
-            <token key="pkg.home" value="${pkg.home}" />
-            <!-\- expath-pkg.xml -\->
-            <token key="pkg.name" value="${pkg.name}" />
-            <token key="pkg.abbrev" value="${pkg.abbrev}" />
-            <token key="pkg.title" value="${pkg.title}" />
-            <token key="pkg.version" value="${pkg.version}" />
-            <token key="pkg.home" value="${pkg.home}" />
-            <?TODO dependencies ?>
-            <!-\- repo.xml -\->
-            <token key="repo.description" value="${repo.description}" />
-            <token key="repo.author" value="${repo.author}" />
-            <token key="repo.website" value="${repo.website}" />
-            <token key="repo.status" value="${repo.status}" />
-            <token key="repo.license" value="${repo.license}" />
-            <token key="repo.copyright" value="${repo.copyright}" />
-            <token key="repo.type" value="${repo.type}" />
-            <token key="repo.target" value="${repo.target}" />
-            <token key="repo.prepare" value="${repo.prepare}" />
-            <token key="repo.finish" value="${repo.finish}" />
-            <token key="repo.permissions.user" value="${repo.permissions.user}" />
-            <token key="repo.permissions.group" value="${repo.permissions.group}" />
-            <token key="repo.permissions.mode" value="${repo.permissions.mode}" />
-            <token key="edirom.prefs.edition_path" value="${edirom.prefs.edition_path}" />
-            <?TODO dependencies ?>
-        </replacetokens>-->
             </filterchain>
             <fileset dir="${uri.edition}" excludes="local.properties" includes="**" />
             <fileset dir="assets-exist-packaging/" includes="**" />
@@ -96,10 +63,8 @@
     <target name="reset" depends="properties.load">
         <delete dir="${dir.build}" />
         <delete dir="${dir.dist}" />
-        <!--<delete dir="${edition.id}" />-->
     </target>
     <target name="xar" depends="build">
-        <?TODO directory harmonisation with build ?>
         <mkdir dir="${dir.dist}" />
         <zip basedir="${dir.build}/${title.short}/" destfile="${dir.dist}/${title.short}.xar" />
     </target>
