@@ -45,8 +45,10 @@ ant -Duri.edition=/PATH/TO/YOUR/EDITION/DATA/DIRECTORY properties.local.create
 If you want to create a XAR-archive from your edition data directory that can be installed in eXist-db execute the following command:
 
 ```bash
-ant -Duri.edition=/PATH/TO/YOUR/EDITION/DATA/DIRECTORY properties.local.create
+ant -Duri.edition=/PATH/TO/YOUR/EDITION/DATA/DIRECTORY xar
 ```
+
+The resulting XAR-Package will be created in the directory specified by the Ant variable ${dir.dist}, which can also be set in your `local.properties` or submitted as parameter when calling ant, e.g. `-Ddir.dist=/Volumes/dist/` file and defaults to `dist` just at the top-level of this repositorie's clone.
 
 ## License
 
